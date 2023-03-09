@@ -1,0 +1,2 @@
+# qaPruebaTecnica
+Technical interview 
