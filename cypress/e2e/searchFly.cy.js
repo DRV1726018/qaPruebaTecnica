@@ -1,7 +1,13 @@
 import Passengers from "../pages/numberPassangers";
+import originPrice from "../pages/originPrice";
 import Destiny from "../pages/searchDestiny";
 import Origin from "../pages/searchOrigin";
 import flyDate from "../pages/selectDate";
+import destinyPrice from "../pages/destinyPrice";
+import continuePersonalization from "../pages/continuePersonalization";
+import firstPassenger from "../pages/firstPassenger";
+import secondPassenger from "../pages/secondPassenger";
+import continueChoosingChairs from "../pages/continueChoosingChairs";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -68,6 +74,47 @@ describe('Fly BOG to CLO', () => {
 
     it('Filling the personal data', () => {
         cy.visit('https://booking.wingo.com/es/search/BOG/CLO/2023-03-16/2023-04-16/2/0/0/0/COP/0/0')
+        cy.wait(5000)
+
+        const op = new originPrice
+        op.originPrice()
+
+        const dp = new destinyPrice
+        dp.setPrice()
+        dp.choosePrice()
+
+
+        cy.wait(5000)
+        const cP = new continuePersonalization
+        cP.continuePersonalization()
+
+        const fp = new firstPassenger
+        fp.firstName()
+        fp.lastName()
+        fp.selectGender()
+        fp.chooseGender()
+        fp.continueGender()
+        fp.chooseYear()
+        fp.chooseMonth()
+        fp.chooseDay()
+        fp.typeEmail()
+        fp.confirmEmail()
+        fp.typePhone()
+        fp.typeID()
+
+        const sp = new secondPassenger
+        sp.firstName()
+        sp.lastName()
+        sp.selectGender()
+        sp.chooseGender()
+        sp.chooseYear()
+        sp.chooseMonth()
+        sp.chooseDay()
+        sp.typeID()
+
+        const ccc = new continueChoosingChairs
+        ccc.chooseChair()
+
     })
 
 })
