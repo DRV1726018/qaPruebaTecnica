@@ -12,8 +12,8 @@ class Destiny {
         cy.get(this.selectDestinyLocator).click({ force: true })
     }
 
-    verifyDestiny() {
-        cy.get(this.verifyDestinyLocator).should('have.text', 'Cali (CLO) Alfonso Bonilla Aragón')
+    verifyDestiny(expected) {
+        cy.get(this.verifyDestinyLocator).should('have.text', expected)
     }
 }
 

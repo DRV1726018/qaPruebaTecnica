@@ -17,8 +17,8 @@ class Origin {
         cy.get(this.selectOriginLocator).click()
     }
 
-    verifyOrigin() {
-        cy.get(this.verifyOriginLocator).should('have.text', 'Bogotá (BOG) El Dorado')
+    verifyOrigin(expected) {
+        cy.get(this.verifyOriginLocator).should('have.text', expected)
     }
 }
 

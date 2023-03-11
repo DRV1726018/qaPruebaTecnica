@@ -21,18 +21,20 @@ describe('Fly BOG to CLO', () => {
     it('Verify that the origin, destiny, number of passengers and the date.', () => {
         cy.visit('https://www.wingo.com')
 
-        // Search Bogota(BOG) as origin
-        const on = new Origin
-        on.setOrigin()
-        on.dropOrigin()
-        on.selectOrigin()
-        on.verifyOrigin()
+        cy.fixture('data').then((data) => {
+            // Search Bogota(BOG) as origin
+            const on = new Origin
+            on.setOrigin()
+            on.dropOrigin()
+            on.selectOrigin()
+            on.verifyOrigin(data[0].origin)
 
-        // Search Cali(CLO) as destiny
-        const dn = new Destiny
-        dn.setDestiny()
-        dn.selectDestiny()
-        dn.verifyDestiny()
+            // Search Cali(CLO) as destiny
+            const dn = new Destiny
+            dn.setDestiny()
+            dn.selectDestiny()
+            dn.verifyDestiny(data[0].destiny)
+        })
 
         // Adding a passanger and verity that there are 2 adults
         const pn = new Passengers;
