@@ -1,7 +1,10 @@
 class originPrice {
+
+    originPriceLocator = ':nth-child(1) > .card-list-item > .card-footer > .wingo-button'
+
     // Select the origin fly price
     originPrice() {
-        cy.get(':nth-child(1) > .card-list-item > .card-footer > .wingo-button').click({ force: true })
+        cy.get(this.originPriceLocator).click({ force: true })
     }
 }
 

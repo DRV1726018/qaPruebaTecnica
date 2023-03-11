@@ -1,19 +1,24 @@
 class Origin {
 
+    setOriginLocator = '.input-origen'
+    dropOriginLocator = '.input-origen > .select-drop > .info-airport > .select > .styledSelect'
+    selectOriginLocator = '[data-cod="BOG"]'
+    verifyOriginLocator = '.input-origen > .select-drop > .info-airport > .select > .styledSelect.styledSelectOrigen'
+
     setOrigin() {
-        cy.get('.input-origen').click({ force: true })
+        cy.get(this.setOriginLocator).click({ force: true })
     }
 
     dropOrigin() {
-        cy.get('.input-origen > .select-drop > .info-airport > .select > .styledSelect').click({ force: true })
+        cy.get(this.dropOriginLocator).click({ force: true })
     }
 
     selectOrigin() {
-        cy.get('[data-cod="BOG"]').click()
+        cy.get(this.selectOriginLocator).click()
     }
 
     verifyOrigin() {
-        cy.get('.input-origen > .select-drop > .info-airport > .select > .styledSelect.styledSelectOrigen').should('have.text', 'Bogotá (BOG) El Dorado')
+        cy.get(this.verifyOriginLocator).should('have.text', 'Bogotá (BOG) El Dorado')
     }
 }
 

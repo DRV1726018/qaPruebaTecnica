@@ -1,15 +1,19 @@
 class Destiny {
 
+    setDestinyLocator = '#inputDestino'
+    selectDestinyLocator = '#comboDestino > [data-cod="CLO"] > .textCity'
+    verifyDestinyLocator = '.input-destino > .select-drop > .info-airport > .select > .styledSelect'
+
     setDestiny() {
-        cy.get('#inputDestino').click({ force: true })
+        cy.get(this.setDestinyLocator).click({ force: true })
     }
 
     selectDestiny() {
-        cy.get('#comboDestino > [data-cod="CLO"] > .textCity').click({ force: true })
+        cy.get(this.selectDestinyLocator).click({ force: true })
     }
 
     verifyDestiny() {
-        cy.get('.input-destino > .select-drop > .info-airport > .select > .styledSelect').should('have.text', 'Cali (CLO) Alfonso Bonilla Aragón')
+        cy.get(this.verifyDestinyLocator).should('have.text', 'Cali (CLO) Alfonso Bonilla Aragón')
     }
 }
 

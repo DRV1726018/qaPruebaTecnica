@@ -1,7 +1,9 @@
 class continuePersonalization {
+
+    continuePersonalizationLocator = '.continue > .btn-continuar'
     // Continue with the personalization
     continuePersonalization() {
-        cy.get('.continue > .btn-continuar').click()
+        cy.get(this.continuePersonalizationLocator).click()
     }
 }
 

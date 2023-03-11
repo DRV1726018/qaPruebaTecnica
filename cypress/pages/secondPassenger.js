@@ -1,40 +1,46 @@
 class secondPassenger {
+
+    firstNameLocator = '#name-1-2'
+    lastNameLocator = '#lastname-1-2'
+    selectGenderLocator = '#sex-1-2 > .styledSelect'
+    chooseGenderLocator = '#sex-1-2 > .options > [rel="F"]'
+    chooseYearLocator = '#\\31 -birthday-1 > :nth-child(1)'
+    chooseMonthLocator = '#\\31 -birthday-1 > :nth-child(2)'
+    chooseDayLocator = '#\\31 -birthday-1 > :nth-child(3)'
+    typeIDLocator = '#numero-1-2'
+
     // // Filling the second passenger
-    // 
-    // 
-    // 
-    // 
-    // 
+
     firstName() {
-        cy.get('#name-1-2').type('Jane', { force: true })
+        cy.get(this.firstNameLocator).type('Jane', { force: true })
     }
 
     lastName() {
-        cy.get('#lastname-1-2').type('Doe', { force: true })
+        cy.get(this.lastNameLocator).type('Doe', { force: true })
     }
 
     selectGender() {
-        cy.get('#sex-1-2 > .styledSelect').click({ force: true })
+        cy.get(this.selectGenderLocator).click({ force: true })
     }
 
     chooseGender() {
-        cy.get('#sex-1-2 > .options > [rel="F"]').click({ force: true })
+        cy.get(this.chooseGenderLocator).click({ force: true })
     }
 
     chooseYear() {
-        cy.get('#\\31 -birthday-1 > :nth-child(1)').select('25: 1999', { force: true })
+        cy.get(this.chooseYearLocator).select('25: 1999', { force: true })
     }
 
     chooseMonth() {
-        cy.get('#\\31 -birthday-1 > :nth-child(2)').select('13: 0', { force: true })
+        cy.get(this.chooseMonthLocator).select('13: 0', { force: true })
     }
 
     chooseDay() {
-        cy.get('#\\31 -birthday-1 > :nth-child(3)').select('63: 1', { force: true })
+        cy.get(this.chooseDayLocator).select('63: 1', { force: true })
     }
 
     typeID() {
-        cy.get('#numero-1-2').type('11111112', { force: true })
+        cy.get(this.typeIDLocator).type('11111112', { force: true })
     }
 }
 

@@ -1,16 +1,20 @@
 class Passengers {
-    // Searching for 2 adults
 
+    setPassangersLocator = '#selectPasj > .info-airport > .icon-chev'
+    addPassangersLocator = ':nth-child(1) > .bts-add > .plus'
+    verifyPassengersLocator = '#adultos'
+
+    // Searching for 2 adults
     setPassangers() {
-        cy.get('#selectPasj > .info-airport > .icon-chev').click({ force: true })
+        cy.get(this.setPassangersLocator).click({ force: true })
     }
 
     addPassangers() {
-        cy.get(':nth-child(1) > .bts-add > .plus').click()
+        cy.get(this.addPassangersLocator).click()
     }
 
     verifyPassengers() {
-        cy.get('#adultos').should('have.text', '2')
+        cy.get(this.verifyPassengersLocator).should('have.text', '2')
     }
 }
 

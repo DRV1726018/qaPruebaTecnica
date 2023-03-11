@@ -1,7 +1,10 @@
 class continueChoosingChairs {
+
+    chooseChairLocator = '[style="text-align: right"] > .btn-continuar'
+
     // Continue with the chair
     chooseChair() {
-        cy.get('[style="text-align: right"] > .btn-continuar').click()
+        cy.get(this.chooseChairLocator).click()
     }
 }
 

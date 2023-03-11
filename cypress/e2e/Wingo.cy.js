@@ -28,16 +28,19 @@ describe('Fly BOG to CLO', () => {
         on.selectOrigin()
         on.verifyOrigin()
 
+        // Search Cali(CLO) as destiny
         const dn = new Destiny
         dn.setDestiny()
         dn.selectDestiny()
         dn.verifyDestiny()
 
+        // Adding a passanger and verity that there are 2 adults
         const pn = new Passengers;
         pn.setPassangers()
         pn.addPassangers()
         pn.verifyPassengers()
 
+        // Choosing the date and verify that there are at least on month of difference
         const dan = new flyDate;
         dan.setDate()
         dan.goingDate()
@@ -47,23 +50,26 @@ describe('Fly BOG to CLO', () => {
         // cy.get('.btn-search').click()
     })
 
-    it('Filling the personal data', () => {
+    it('Buying the sits, filling the personal data and make the payment', () => {
         cy.visit('https://booking.wingo.com/es/search/BOG/CLO/2023-03-16/2023-04-16/2/0/0/0/COP/0/0')
         cy.wait(5000)
 
+        // Choosing the origin fly price
         const op = new originPrice
         op.originPrice()
 
+        // Choosing the destiny fly price
         const dp = new destinyPrice
         dp.setPrice()
         dp.choosePrice()
 
-
+        // Click into continue, the webpage has some loading troubles.
         cy.wait(5000)
         const cP = new continuePersonalization
         cP.continuePersonalization()
-
         cy.wait(5000)
+
+        // Filling the data of the first passenger
         const fp = new firstPassenger
         fp.firstName()
         fp.lastName()
@@ -78,6 +84,7 @@ describe('Fly BOG to CLO', () => {
         fp.typePhone()
         fp.typeID()
 
+        // Filling the date of the seccond passenger
         const sp = new secondPassenger
         sp.firstName()
         sp.lastName()
@@ -88,27 +95,32 @@ describe('Fly BOG to CLO', () => {
         sp.chooseDay()
         sp.typeID()
 
+        // Click in to continue and avanced to the choosing chairs section
         const ccc = new continueChoosingChairs
         ccc.chooseChair()
 
+        // Choosing the origin fly chairs, the system will assign automatically
         const co = new choosingOriginChairs
         co.selectChair()
         co.chooseChair()
         co.advanced()
         co.clickPopup()
 
+        // Choosing the destiny chairs, the system will asign automatically
         const cd = new choosingDestinyChairs
         cd.selectDestinyChair()
         cd.chooseDestinyChairs()
         cd.advanced()
         cd.clickPopup()
 
+        // Making the payment, and select no assurance.
         const pa = new Payment
+        cy.wait(5000)
         pa.notFinancialInsurance()
         pa.avoidChair()
         pa.clickContinue()
         pa.advanced()
-        pa.clickContinue()
+        pa.clickContinueButton()
         pa.final()
 
     })
