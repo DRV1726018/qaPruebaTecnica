@@ -14,12 +14,12 @@ class firstPassenger {
     typeIDLocator = '#numero-1-1'
 
     // Filling the first passenger 
-    firstName() {
-        cy.get(this.firstNameLocator).type('David', { force: true })
+    firstName(firstname) {
+        cy.get(this.firstNameLocator).type(firstname, { force: true })
     }
 
-    lastName() {
-        cy.get(this.lastNameLocator).type('Ramirez', { force: true })
+    lastName(lastname) {
+        cy.get(this.lastNameLocator).type(lastname, { force: true })
     }
 
     selectGender() {
@@ -45,20 +45,20 @@ class firstPassenger {
     chooseDay() {
         cy.get(this.chooseDayLocator).select('63: 1', { force: true })
     }
-    typeEmail() {
-        cy.get(this.typeEmailLocator).type('email1@email.com', { force: true })
+    typeEmail(email) {
+        cy.get(this.typeEmailLocator).type(email, { force: true })
     }
 
-    confirmEmail() {
-        cy.get(this.confirmEmailLocator).type('email1@email.com', { force: true })
+    confirmEmail(confirmation_email) {
+        cy.get(this.confirmEmailLocator).type(confirmation_email, { force: true })
     }
 
-    typePhone() {
-        cy.get(this.typePhoneLocator).type('3111111111', { force: true })
+    typePhone(phone) {
+        cy.get(this.typePhoneLocator).type(phone, { force: true })
     }
 
-    typeID() {
-        cy.get(this.typeIDLocator).type('11111111', { force: true })
+    typeID(id) {
+        cy.get(this.typeIDLocator).type(id, { force: true })
     }
 }
 

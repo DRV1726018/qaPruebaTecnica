@@ -70,30 +70,34 @@ describe('Fly BOG to CLO', () => {
         cy.wait(5000)
 
         // Filling the data of the first passenger
-        const fp = new firstPassenger
-        fp.firstName()
-        fp.lastName()
-        fp.selectGender()
-        fp.chooseGender()
-        fp.continueGender()
-        fp.chooseYear()
-        fp.chooseMonth()
-        fp.chooseDay()
-        fp.typeEmail()
-        fp.confirmEmail()
-        fp.typePhone()
-        fp.typeID()
+        cy.fixture('data').then((data) => {
+            const fp = new firstPassenger
+            fp.firstName(data[1].passenger.name)
+            fp.lastName(data[1].passenger.lastname)
+            fp.selectGender()
+            fp.chooseGender()
+            fp.continueGender()
+            fp.chooseYear()
+            fp.chooseMonth()
+            fp.chooseDay()
+            fp.typeEmail(data[1].passenger.email)
+            fp.confirmEmail(data[1].passenger.confirmation_email)
+            fp.typePhone(data[1].passenger.phone)
+            fp.typeID(data[1].passenger.id)
+        })
 
         // Filling the date of the seccond passenger
-        const sp = new secondPassenger
-        sp.firstName()
-        sp.lastName()
-        sp.selectGender()
-        sp.chooseGender()
-        sp.chooseYear()
-        sp.chooseMonth()
-        sp.chooseDay()
-        sp.typeID()
+        cy.fixture('data').then((data) => {
+            const sp = new secondPassenger
+            sp.firstName(data[2].passenger.name)
+            sp.lastName(data[2].passenger.lastname)
+            sp.selectGender()
+            sp.chooseGender()
+            sp.chooseYear()
+            sp.chooseMonth()
+            sp.chooseDay()
+            sp.typeID(data[2].passenger.id)
+        })
 
         // Click in to continue and avanced to the choosing chairs section
         const ccc = new continueChoosingChairs

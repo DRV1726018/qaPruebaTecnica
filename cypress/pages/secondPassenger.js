@@ -11,12 +11,12 @@ class secondPassenger {
 
     // // Filling the second passenger
 
-    firstName() {
-        cy.get(this.firstNameLocator).type('Jane', { force: true })
+    firstName(firstname) {
+        cy.get(this.firstNameLocator).type(firstname, { force: true })
     }
 
-    lastName() {
-        cy.get(this.lastNameLocator).type('Doe', { force: true })
+    lastName(lastname) {
+        cy.get(this.lastNameLocator).type(lastname, { force: true })
     }
 
     selectGender() {
@@ -39,8 +39,8 @@ class secondPassenger {
         cy.get(this.chooseDayLocator).select('63: 1', { force: true })
     }
 
-    typeID() {
-        cy.get(this.typeIDLocator).type('11111112', { force: true })
+    typeID(id) {
+        cy.get(this.typeIDLocator).type(id, { force: true })
     }
 }
 

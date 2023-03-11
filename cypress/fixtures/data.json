@@ -1,0 +1,23 @@
+[
+  {
+    "destiny_expected": "Cali (CLO) Alfonso Bonilla Aragón",
+    "origin_expected": "Bogotá (BOG) El Dorado"
+  },
+  {
+    "passenger": {
+      "name": "David",
+      "lastname": "Ramirez",
+      "email": "email1@email.com",
+      "confirmation_email": "email1@email.com",
+      "phone": "3111111111",
+      "id": "11111111"
+    }
+  },
+  {
+    "passenger": {
+      "name": "Jane",
+      "lastname": "Doe",
+      "id": "11111112"
+    }
+  }
+]
