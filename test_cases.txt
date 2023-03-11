@@ -27,7 +27,6 @@ AND user click into the return drop menu
 THEN will be at least 30 days of difference between both dates
 
 // ------------------------------------------------------------------------------------- // ------------------------------------------------------------------------------------- //
--completar los datos de los viajeros.
 
 Scenario: Search cheapest departing flight Bogota - Cali
 GIVEN user has completed the first menu
