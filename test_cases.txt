@@ -1,0 +1,98 @@
+Scenario: Search a flight from Bogota 
+GIVEN user has choose "Wingo" website
+AND user is in the main page.
+WHEN user click into From the drop menu
+AND user click into "Bogota"
+THEN the text "Bogota BOG el dorado" should exists
+
+Scenario: Search a flight to Cali 
+GIVEN user has choose "Wingo" website
+AND user is in the main page.
+WHEN user click into the To drop menu
+AND user click into "Cali"
+THEN the text "Cali(CLO) Alfonso Bonilla Aragón" should exists
+
+Scenario: Select the number of passangers
+GIVEN user has choose "Wingo" website.
+AND user is in the main page
+WHEN user click into the Passengers drop menu
+AND user click into plus "+" adult
+THEN the text "2 Pasajeros" should exists
+
+Scenario: The difference between departure and return will be at least one month
+GIVEN user has choose "Wingo" website
+AND user is in the main page
+WHEN user click into the departure drop menu
+AND user click into the return drop menu
+THEN will be at least 30 days of difference between both dates
+
+// ------------------------------------------------------------------------------------- // ------------------------------------------------------------------------------------- //
+-completar los datos de los viajeros.
+
+Scenario: Search cheapest departing flight Bogota - Cali
+GIVEN user has completed the first menu
+AND user is in the booking page
+WHEN user choose "GO BASIC" travel
+THEN user has choosed the cheapest flight
+
+Scenario: Search cheapest Return flight Cali - Bogota
+GIVEN user has completed the first menu
+AND user is in the booking page
+WHEN user choose "GO BASIC" travel
+THEN user has choosed the cheapest flight
+
+Scenario: User click continue to be redirected to "Personalize" menu
+GIVEN user has completed the search menu
+WHEN user click into the Continue button
+THEN user will be redirected to the "Personalize" menu.
+
+// NOTE: Every field should be tested in order to verify their functions.
+
+Scenario: User has to complete the passenger data fields
+GIVEN user is in to the Personalize menu
+WHEN user complete the Adult 1 and Adult 2 data fields
+THEN user can click in to the continue button
+
+// NOTE: Every field should be tested for emptyness, tildes or special characters.
+
+Scenario: User don't want to buy a seat
+GIVEN user is in the "Select seat" menu
+WHEN user click in to the "Don't buy seat" button
+THEN the price shouldn't be exists
+AND user can click into the "Continue to return flight"
+
+Scenario: User have to click into the pop up "Select seat" in the Departure Flight section
+GIVEN user has choosed not buy a seat
+WHEN user click in to the "Continue to return fligh" button
+THEN pop up should appear 
+AND user can click in to the "I do not want to select seat"
+AND user should be redirected.
+
+Scenario: User have to click into the pop up "Select seat" in the Return Flight section
+GIVEN user has choosed not buy a seat
+WHEN user click in to the "Continue" button
+THEN pop up should appear 
+AND user can click in to the "I do not want to select seat"
+AND user should be redirected.
+
+Scenario: User don't want acquire a travel insurance
+GIVEN user is in the "Pay" menu
+WHEN user click in to the "No, thanks" button
+THEN user will not pay the insurance charge
+
+Scenario: User choose the payment method
+GIVEN user is in the "Pay" section
+WHEN user click in to the "Cash payments in Colombia"
+THEN the drop menu with the info and a "Continue" button will appear
+AND user click in to the "Continue" button the "TOTAL" will appear
+
+Scenario: User click in to the "Terms and conditions"
+GIVEN user has completed all the steps
+WHEN user click in to the "I have read and accept terms and conditions"
+THEN button will change their state
+AND user can click in to the "Continue" menu
+
+Scenario: User click in to the "Continue" button of the pay menu
+GIVEN user has clicked in tho the "Continue" button
+WHEN user is in the "Total" pop up
+THEN user can click in to the "Pay" button

@@ -2,7 +2,7 @@ import Passengers from "../pages/numberPassangers";
 import originPrice from "../pages/originPrice";
 import Destiny from "../pages/searchDestiny";
 import Origin from "../pages/searchOrigin";
-import flyDate from "../pages/selectDate";
+import flightDate from "../pages/selectDate";
 import destinyPrice from "../pages/destinyPrice";
 import continuePersonalization from "../pages/continuePersonalization";
 import firstPassenger from "../pages/firstPassenger";
@@ -16,9 +16,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 });
 
-describe('Fly BOG to CLO', () => {
+describe('Flight BOG to CLO', () => {
 
-    it('Verify that the origin, destiny, number of passengers and the date.', () => {
+    it('Verify the origin, destiny, number of passengers and the date.', () => {
         cy.visit('https://www.wingo.com')
 
         cy.fixture('data').then((data) => {
@@ -34,21 +34,27 @@ describe('Fly BOG to CLO', () => {
             dn.setDestiny()
             dn.selectDestiny()
             dn.verifyDestiny(data[0].destiny)
+
+            // Adding a passanger and verity that there are 2 adults
+            const pn = new Passengers;
+            pn.setPassangers()
+            pn.addPassangers()
+            pn.verifyPassengers()
+
+            // Choosing the date and verify that there are at least on month of difference
+            const dan = new flightDate;
+            dan.setDate()
+            dan.goingDate()
+            dan.commingDate()
+            dan.verifyDepartureDayDate(data[0].departure_day)
+            dan.verifyDepartureMonthDate('Marzo‎')
+            dan.verifyReturnDayDate(data[0].return_day)
+            dan.verifyReturnMonthDate('Abril‎')
         })
 
-        // Adding a passanger and verity that there are 2 adults
-        const pn = new Passengers;
-        pn.setPassangers()
-        pn.addPassangers()
-        pn.verifyPassengers()
 
-        // Choosing the date and verify that there are at least on month of difference
-        const dan = new flyDate;
-        dan.setDate()
-        dan.goingDate()
-        dan.commingDate()
 
-        // Search the fly and handle the new tab
+        // Search the flight and handle the new tab
         // cy.get('.btn-search').click()
     })
 
@@ -56,11 +62,11 @@ describe('Fly BOG to CLO', () => {
         cy.visit('https://booking.wingo.com/es/search/BOG/CLO/2023-03-16/2023-04-16/2/0/0/0/COP/0/0')
         cy.wait(5000)
 
-        // Choosing the origin fly price
+        // Choosing the origin flight price
         const op = new originPrice
         op.originPrice()
 
-        // Choosing the destiny fly price
+        // Choosing the destiny flight price
         const dp = new destinyPrice
         dp.setPrice()
         dp.choosePrice()
@@ -105,7 +111,7 @@ describe('Fly BOG to CLO', () => {
         const ccc = new continueChoosingChairs
         ccc.chooseChair()
 
-        // Choosing the origin fly chairs, the system will assign automatically
+        // Choosing the origin flight chairs, the system will assign automatically
         const co = new choosingOriginChairs
         co.selectChair()
         co.chooseChair()
