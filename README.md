@@ -34,4 +34,4 @@ This folder contains the different classes and locators that cypress uses to int
 
 ### Test Cases
 
-The test cases that have been used in this project had been wrote in the test_cases.txt file using GHERKIN languaje in order to ease the understanding of the clients and the project manager.
+The test cases that have been used in this project had been wrote in the test_cases.txt file using GHERKIN languaje in order to ease the understanding of the clients and the project manager...
