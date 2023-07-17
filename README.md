@@ -1,5 +1,5 @@
 # qaPruebaTecnica
-David Ramírez - Technical interview 
+David Ramírez - Technical interview. 
 This is an automation technical interview based on Cypress.
 
 ## Installation
